@@ -37,6 +37,10 @@ class DetailActivity : AppCompatActivity() {
             binding.tvBahan.text = bahan
             binding.tvMembuat.text = membuat
 
+            binding.btnBack.setOnClickListener{
+                finish()
+            }
+
             binding.bottomNavigationView.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.homeVec -> {
