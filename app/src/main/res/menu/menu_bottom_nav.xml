@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeVec"
+        android:title="home"
+        android:icon="@drawable/vec_home_orange_30"/>
+    <item
+        android:id="@+id/addVec"
+        android:title="add"
+        android:icon="@drawable/add_circle_30"/>
+    <item
+        android:id="@+id/searchVec"
+        android:title="explore"
+        android:icon="@drawable/search_orange_30"/>
+
+</menu>
