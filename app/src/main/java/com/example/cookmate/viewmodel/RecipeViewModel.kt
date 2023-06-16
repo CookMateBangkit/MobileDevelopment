@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.util.*
 
 class RecipeViewModel: ViewModel() {
     val resultSucces = MutableLiveData<MutableList<DataItem>>()
@@ -55,4 +56,34 @@ class RecipeViewModel: ViewModel() {
             }
         }
     }
+}
+
+private fun filterRecipes(recipes: List<DataItem>, query: String): MutableList<DataItem> {
+    val filteredRecipes = mutableListOf<DataItem>()
+
+    val lowercaseQuery = query.lowercase(Locale.getDefault())
+
+    for (recipe in recipes) {
+        val recipeName = recipe.name.lowercase(Locale.getDefault())
+        val recipeIngredients = recipe.ingredients.lowercase(Locale.getDefault())
+
+        val nameMatches = recipeName.containsWholeWords(lowercaseQuery)
+        val ingredientsMatches = recipeIngredients.containsWholeWords(lowercaseQuery)
+
+        if (nameMatches || ingredientsMatches) {
+            filteredRecipes.add(recipe)
+        }
+    }
+
+    return filteredRecipes
+}
+
+private fun String.containsWholeWords(query: String): Boolean {
+    val words = this.split("\\s".toRegex())
+    for (word in words) {
+        if (word == query) {
+            return true
+        }
+    }
+    return false
 }

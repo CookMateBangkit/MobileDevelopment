@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cookmate.adapter.RecipeAdapter
 import com.example.cookmate.api.ApiConfig
@@ -19,6 +20,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 
 class TeksToRecipeActivity : AppCompatActivity() {
 
@@ -39,15 +43,16 @@ class TeksToRecipeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.progressBar1.isVisible = false
+        binding.view2.isVisible = false
 
-        binding.rvTextRecipe.layoutManager = LinearLayoutManager(this)
+        binding.rvTextRecipe.layoutManager = GridLayoutManager(this, 2)
         binding.rvTextRecipe.setHasFixedSize(true)
         binding.rvTextRecipe.adapter = adapter
 
         binding.btnText.setOnClickListener{
-            val bahan =binding.etBahan.text.toString().trim()
+            val query = binding.etBahan.text.toString().trim()
 
-            if (bahan.isEmpty()) {
+            if (query.isEmpty()) {
                 binding.etBahan.error = "Bahan kamu masih kosong"
                 binding.etBahan.requestFocus()
                 return@setOnClickListener
@@ -55,19 +60,28 @@ class TeksToRecipeActivity : AppCompatActivity() {
 
             GlobalScope.launch(Dispatchers.IO){
                 launch(Dispatchers.Main){
-                    flow{
-                        val response = ApiConfig
-                            .getApiService()
-                            .uploadText(bahan)
-                        emit(response)
-                    }.onStart {
-                        binding.progressBar1.isVisible = true
-                    }.onCompletion {
-                        binding.progressBar1.isVisible = false
-                    }.catch {
-                        Toast.makeText(this@TeksToRecipeActivity, "Error", Toast.LENGTH_SHORT).show()
-                    }.collect{
-                        adapter.setData(it.data)
+                    try {
+                        val bahan = binding.etBahan.text.toString().trim()
+
+                        val jsonObject = JSONObject()
+                        jsonObject.put("ingredients", bahan)
+
+                        val requestBody =
+                            jsonObject.toString().toRequestBody("application/json".toMediaType())
+
+                        val response = ApiConfig.getApiService().uploadText(requestBody)
+                        launch(Dispatchers.Main) {
+                            adapter.setData(response.data)
+                            binding.progressBar1.isVisible = false
+                            binding.tvCocok.text = "Berikut resep yg dapat kamu buat"
+                            binding.view2.isVisible = true
+                        }
+                    } catch (e: Exception) {
+                        launch(Dispatchers.Main) {
+                            Toast.makeText(this@TeksToRecipeActivity, "Error", Toast.LENGTH_SHORT)
+                                .show()
+                            binding.progressBar1.isVisible = false
+                        }
                     }
                 }
             }

@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cookmate.adapter.RecipeAdapter
 import com.example.cookmate.api.ApiConfig
@@ -98,6 +99,8 @@ class PhotoToRecipeActivity : AppCompatActivity() {
 
         binding.progressBar3.isVisible = false
 
+        binding.view3.isVisible = false
+
         binding.ivTakePhoto.setOnClickListener {
             startCameraX()
         }
@@ -107,7 +110,7 @@ class PhotoToRecipeActivity : AppCompatActivity() {
         binding.btnUpload.setOnClickListener{
             uploadImage()
         }
-        binding.rvRecipePhoto.layoutManager = LinearLayoutManager(this)
+        binding.rvRecipePhoto.layoutManager = GridLayoutManager(this, 2)
         binding.rvRecipePhoto.setHasFixedSize(true)
         binding.rvRecipePhoto.adapter = adapter
 
@@ -210,6 +213,8 @@ class PhotoToRecipeActivity : AppCompatActivity() {
                     }.collect{
                         Toast.makeText(this@PhotoToRecipeActivity, "Berhasil Upload", Toast.LENGTH_SHORT).show()
                         adapter.setData(it.data)
+                        binding.tvCocok.text = "Berikut resep yang dapat kamu buat"
+                        binding.view3.isVisible = true
 //                        resultSucces.observe(this@PhotoToRecipeActivity){
 //                            adapter.setData(it)
 //                        }

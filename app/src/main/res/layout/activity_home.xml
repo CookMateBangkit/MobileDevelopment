@@ -9,24 +9,15 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.62" />
 
             <TextView
                 android:id="@+id/textView"
@@ -35,7 +26,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Good morning!"
+                android:text="Selamat Pagi"
                 android:textColor="#684D3C"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -48,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Let's start the day by breakfast"
+                android:text="Mau sarapan apa hari ini?"
                 android:textColor="#684D3C"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,23 +52,23 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Quick actions"
+                android:text="Aksi cepat"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/ivDiscover"
                 android:layout_width="match_parent"
                 android:layout_height="165dp"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="22dp"
                 android:background="@drawable/background_hijau_muda"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
-                tools:layout_editor_absoluteY="164dp" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
             <TextView
@@ -87,21 +78,54 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="13dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Browse All Food"
+                android:text="Semuanya enak-enak"
                 android:textColor="@color/black"
                 android:textSize="23sp"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivDiscover" />
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvRecipe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="22dp"
                 android:layout_marginTop="13dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="22dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/atkinsonhyperlegiblebold"
+                android:text="Temukan resep baru\ndengan kameramu"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/ivDiscover"
+                app:layout_constraintTop_toTopOf="@+id/ivDiscover" />
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/ivDiscover"
+                app:layout_constraintEnd_toEndOf="@+id/ivDiscover"
+                app:layout_constraintStart_toStartOf="@+id/ivDiscover"
+                app:layout_constraintTop_toTopOf="@+id/ivDiscover" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="191dp"
+                android:layout_height="106dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivDiscover"
+                app:layout_constraintEnd_toEndOf="@+id/ivDiscover"
+                app:srcCompat="@drawable/cookmate_image5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -110,7 +134,9 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/background_bottom_nav"
+        app:itemIconTint="#756E6E"
+        app:itemTextColor="#756E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

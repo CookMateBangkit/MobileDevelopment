@@ -29,7 +29,10 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.ivDiscover.setOnClickListener{
+            val intent = Intent(this, PhotoToRecipeActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.rvRecipe.layoutManager = GridLayoutManager(this, 2)
         binding.rvRecipe.isNestedScrollingEnabled()

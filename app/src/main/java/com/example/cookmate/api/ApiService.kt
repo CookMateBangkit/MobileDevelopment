@@ -29,9 +29,9 @@ interface ApiService {
         @Part file: MultipartBody.Part
     ): RecipeResponse
 
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
     @POST("recommend")
     suspend fun uploadText(
-        @Field("ingredients") name: String
+        @Body requestBody: RequestBody
     ): RecipeResponse
 }

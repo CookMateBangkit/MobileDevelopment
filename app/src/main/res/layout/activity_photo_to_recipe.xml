@@ -25,7 +25,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Upload Foto Bahan Kamu"
+                android:text="Upload Foto Bahan Utama Kamu"
                 android:textColor="#FF6E2F"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,9 @@
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:layout_marginStart="22dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="22dp"
                 android:background="@drawable/garis_hitam"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,9 +57,9 @@
                 android:id="@+id/iv1"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="22dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="22dp"
                 android:background="@drawable/background_hijau_muda"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -75,7 +77,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv1" />
+                app:layout_constraintTop_toBottomOf="@+id/iv1"
+                android:src="@drawable/cookmate_image3"/>
 
             <ImageView
                 android:id="@+id/ivTakePhoto"
@@ -93,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Take Photo"
+                android:text="Ambil foto"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="@+id/ivTakePhoto"
                 app:layout_constraintStart_toStartOf="@+id/ivTakePhoto"
@@ -115,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Upload from Galery"
+                android:text="Upload dari galeri"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="@+id/ivGalery"
                 app:layout_constraintStart_toStartOf="@+id/ivGalery"
@@ -151,11 +154,59 @@
                 android:id="@+id/rvRecipePhoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <TextView
+                android:id="@+id/tvCocok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/atkinsonhyperlegiblebold"
+                android:textColor="#FF6E2F"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnUpload" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="22dp"
+                android:background="@drawable/garis_hitam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCocok" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="191dp"
+                android:layout_height="106dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv1"
+                app:layout_constraintEnd_toEndOf="@+id/iv1"
+                app:srcCompat="@drawable/cookmate_image5" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/atkinsonhyperlegiblebold"
+                android:text="Ambil foto\nbahan masakan kamu\ndulu yukk"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/iv1"
+                app:layout_constraintTop_toTopOf="@+id/iv1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -164,7 +215,9 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/background_bottom_nav"
+        app:itemIconTint="#756E6E"
+        app:itemTextColor="#756E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

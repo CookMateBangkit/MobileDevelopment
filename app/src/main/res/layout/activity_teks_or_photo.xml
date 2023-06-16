@@ -25,7 +25,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Resep yang Kamu Simpan"
+                android:text="Punya bahannya tapi gak tau masaknya"
                 android:textColor="#FF6E2F"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -96,17 +96,17 @@
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="22dp"
                 android:fontFamily="@font/atkinsonhyperlegibleregular"
-                android:text="Kamu bisa ambil atau upload foto dari bahan utama kamu disini, dan kami akan mencarikan resep yang cocok buat kamu."
+                android:text="Kamu bisa ambil atau upload foto\ndari bahan utama kamu disini,\ndan kami akan mencarikan resep\nyang cocok buat kamu."
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
@@ -124,27 +124,48 @@
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="22dp"
                 android:fontFamily="@font/atkinsonhyperlegibleregular"
-                android:text="Kamu bisa tulis bahan apa aja yang kamu punya disini, bisa dari bahan utama atau rempah-rempah nya, dan kami akan carikan resep yang cocok dengan bahan yang kamu masukkan"
+                android:text="Kamu bisa tulis bahan apa aja\nyang kamu punya disini,\nbisa dari bahan utama atau\nrempah-rempah nya,\ndan kami akan carikan\nresep yang cocok dengan\nbahan yang kamu masukkan"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/garis_hitam"
-                app:layout_constraintTop_toBottomOf="@+id/textView10"
-                tools:layout_editor_absoluteX="-20dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:srcCompat="@drawable/cookmate_image1" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                app:srcCompat="@drawable/cookmate_image2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -154,7 +175,9 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/background_bottom_nav"
+        app:itemIconTint="#756E6E"
+        app:itemTextColor="#756E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -3,6 +3,7 @@ package com.example.cookmate
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.cookmate.databinding.ActivityPhotoToRecipeBinding
 import com.example.cookmate.databinding.ActivityTeksOrPhotoBinding
 
@@ -23,6 +24,7 @@ class TeksOrPhotoActivity : AppCompatActivity() {
         binding.btnTeks.setOnClickListener{
             val intent = Intent(this, TeksToRecipeActivity::class.java)
             startActivity(intent)
+//            Toast.makeText(this, "Fitur ini masih dalam maintenance", Toast.LENGTH_SHORT).show()
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener {

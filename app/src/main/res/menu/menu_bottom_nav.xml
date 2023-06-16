@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/homeVec"
-        android:title="home"
+        android:title="Beranda"
         android:icon="@drawable/home_selector"/>
     <item
         android:id="@+id/addVec"
-        android:title="add"
+        android:title="Tambah"
         android:icon="@drawable/add_selector"/>
     <item
         android:id="@+id/searchVec"
-        android:title="explore"
+        android:title="Telusuri"
         android:icon="@drawable/search_selector"/>
 
 </menu>

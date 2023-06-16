@@ -25,7 +25,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/atkinsonhyperlegiblebold"
-                android:text="Kamu punya\nbahan masak apa saja?"
+                android:text="Kamu punya\nbahan masakan apa saja?"
                 android:textColor="#FF6E2F"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="22dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="22dp"
                 android:background="@drawable/background_searchview"
                 android:ems="10"
@@ -45,8 +45,9 @@
                 android:inputType="textPersonName"
                 android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv1" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <ImageView
                 android:id="@+id/iv1"
@@ -96,12 +97,65 @@
                 app:layout_constraintStart_toStartOf="@+id/etBahan"
                 app:layout_constraintTop_toBottomOf="@+id/etBahan" />
 
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="22dp"
+                android:background="@drawable/garis_hitam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCocok" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTextRecipe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="22dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="22dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/atkinsonhyperlegiblebold"
+                android:text="Jangan buang\nbahan masakan sisa kamu!!\nKami bakal cariin resep\nyang cocok dengan\nbahan masakan kamu"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/iv1"
+                app:layout_constraintTop_toTopOf="@+id/iv1" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/atkinsonhyperlegiblebold"
+                android:text="Masukkan bahan masakan\nyang kamu punya"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv1" />
+
+            <TextView
+                android:id="@+id/tvCocok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/atkinsonhyperlegiblebold"
+                android:textColor="#FF6E2F"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnText" />
 
@@ -113,7 +167,9 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/background_bottom_nav"
+        app:itemIconTint="#756E6E"
+        app:itemTextColor="#756E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
